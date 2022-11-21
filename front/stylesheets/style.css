@@ -1,0 +1,18 @@
+img {
+  max-width: 100px;
+}
+#box {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+  width: 80%;
+  margin: auto;
+}
+.card {
+  background-color: pink;
+  border-radius: 10px;
+  padding: 10px;
+}
+.toolbar {
+  font-size: 20px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add an item</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="../scripts/createListing.js" defer></script>
+  </head>
+  <body>
+    <div class="toolbar">
+      <ul>
+        <li><a href="../pages/login.html">Login</a></li>
+        <li><a href="../pages/register.html">Register</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/addItem.html">Create a listing</a></li>
+      </ul>
+    </div>
+    <form method="post" id="form">
+      <input
+        type="text"
+        id="item_name"
+        name="item"
+        placeholder="Name of the item"
+      />
+      <input
+        type="text"
+        id="starting_bid"
+        name="starting_bid"
+        placeholder="Whats the starting bid"
+      />
+      <input
+        type="text"
+        id="image"
+        name="image"
+        placeholder="URL of the image"
+      />
+      <input
+        type="date"
+        id="start_date"
+        name="start_date"
+        placeholder="When should auction start"
+      />
+      <input
+        type="text"
+        id="owner"
+        name="owner"
+        placeholder="Name of the item owner"
+      />
+      <input
+        type="date"
+        id="end_date"
+        name="end_date"
+        placeholder="When auction should end"
+      />
+      <button id="btnCreate">Create entry</button>
+    </form>
+    <div class="error"></div>
+  </body>
+</html>
