@@ -1,6 +1,4 @@
-const inputs = document.querySelectorAll('input');
 const buttons = document.querySelectorAll('button');
-const errorDivs = document.querySelectorAll('.error');
 const usernameField = document.getElementById('username');
 const passwordField = document.getElementById('password');
 
