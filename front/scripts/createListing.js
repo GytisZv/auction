@@ -21,7 +21,7 @@ const initPage = () => {
 initPage();
 create_button.addEventListener('click', async (e) => {
   e.preventDefault();
-  const randomId = Math.floor(Math.random() * 1000);
+  const randomId = Math.floor(Math.random() * 1000000);
   const item = {
     id: randomId,
     item_name: item_name.value,
@@ -34,7 +34,7 @@ create_button.addEventListener('click', async (e) => {
   console.log('item ===', item);
 
   const res = await post(item, 'createItem');
-  console.log('res ===', res);
+
   if (res.ok === 'ok') {
     window.location.href = '../index.html';
   }

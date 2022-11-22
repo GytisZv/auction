@@ -13,10 +13,12 @@ button.addEventListener('click', async (e) => {
 
   const res = await post(user, 'register');
 
-  if (!res.error) {
-    window.alert(`vartotojas ${user.email} sukurtas`);
+  if (res.error) {
+    window.alert(
+      `Vartotojas ${user.email} jau yra sukurtas. Prašome pasirinkti kitą vardą`
+    );
+  } else {
+    window.alert(`Vartotojas ${user.email} sukurtas. Sveiki atvyke !`);
     window.location.href = '../index.html';
   }
-
-  console.log(res);
 });
