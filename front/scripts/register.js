@@ -1,21 +1,10 @@
 const inputs = document.querySelectorAll('input');
-const buttons = document.querySelectorAll('button');
+const button = document.getElementById('btnRegister');
 const errorDivs = document.querySelectorAll('.error');
+import { post, get } from './http.js';
 
-const post = async (data, url) => {
-  const options = {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
-
-  const res = await fetch('http://localhost:3000/' + url, options);
-  return await res.json();
-};
-
-buttons[0].onclick = async () => {
+button.addEventListener('click', async (e) => {
+  e.preventDefault();
   const user = {
     email: inputs[0].value,
     passOne: inputs[1].value,
@@ -24,8 +13,10 @@ buttons[0].onclick = async () => {
 
   const res = await post(user, 'register');
 
-  if (res.error) return (errorDivs[0].innerHTML = res.message);
-  errorDivs[0].innerHTML = '';
+  if (!res.error) {
+    window.alert(`vartotojas ${user.email} sukurtas`);
+    window.location.href = '../index.html';
+  }
 
   console.log(res);
-};
+});

@@ -14,7 +14,10 @@ module.exports = {
       owner: req.body.owner,
       end_date: req.body.end_date,
     });
+    console.log('item=', item);
+    console.log(res);
     await item.save();
+
     res.send({ ok: 'ok' });
   },
   getItems: async (req, res) => {
@@ -33,7 +36,7 @@ module.exports = {
     if (userExists) {
       res.send({
         error: true,
-        message: 'user already exists',
+        message: 'Vartotojo vardas jau naudojamas',
         data: null,
       });
       return;
@@ -46,21 +49,31 @@ module.exports = {
     res.send({ error: false, message: null, data: user });
   },
   login: async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password1 } = req.body;
 
-    // const user = await userSchema.findOne({ email, password });
     const user = await userSchema.findOne({ email });
-    // jeigu bcryptas pasako, kad pass ne tokie pat, tai metam errora
-    if (!bcrypt.compare(user.password, password)) {
+    console.log('user after findone() ===', user);
+    if (!user) {
       res.send({
         error: true,
-        message: 'bad passwordinho brother',
+        message: 'user doesnt exist',
         data: null,
       });
+      console.log('user doesnt exist');
       return;
     }
-
-    console.log('prijungta');
-    res.send({ error: false, message: null, data: user });
+    bcrypt.compare(password1, user.password, async (error, result) => {
+      if (!result) {
+        console.log('error ===', error);
+        res.send({
+          error: true,
+          message: 'bad passwordinho brother',
+          data: null,
+        });
+      } else {
+        console.log('prijungta');
+        res.send({ error: false, message: 'online', data: user });
+      }
+    });
   },
 };

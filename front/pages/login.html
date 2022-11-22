@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login page</title>
     <link rel="stylesheet" href="../stylesheets/style.css" />
-    <script src="../scripts/login.js" defer></script>
+    <script type="module" src="../scripts/login.js" defer></script>
   </head>
   <body>
     <div class="toolbar">
@@ -17,7 +17,8 @@
         <li><a href="../pages/addItem.html">Create a listing</a></li>
       </ul>
     </div>
-    <form>
+    <div id="error"></div>
+    <form id="form">
       <input
         type="text"
         id="username"

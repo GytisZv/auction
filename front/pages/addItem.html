@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add an item</title>
     <link rel="stylesheet" href="../stylesheets/style.css" />
-    <script src="../scripts/createListing.js" defer></script>
+    <script type="module" src="../scripts/createListing.js" defer></script>
   </head>
   <body>
     <div class="toolbar">
@@ -17,6 +17,7 @@
         <li><a href="../pages/addItem.html">Create a listing</a></li>
       </ul>
     </div>
+    <div id="error"></div>
     <form method="post" id="form">
       <input
         type="text"
@@ -41,12 +42,6 @@
         id="start_date"
         name="start_date"
         placeholder="When should auction start"
-      />
-      <input
-        type="text"
-        id="owner"
-        name="owner"
-        placeholder="Name of the item owner"
       />
       <input
         type="date"
